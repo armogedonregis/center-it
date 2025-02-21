@@ -16,6 +16,10 @@ export const Header = () => {
     }
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
   return (
     <header className="bg-header_bg text-white">
       <div className="container flex items-center justify-between py-3">
