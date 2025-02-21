@@ -6,7 +6,7 @@ export default function HomePage() {
   return (
     <>
       <section className="bg-main_bg_with_noise bg-blend-soft-light bg-repeat h-[563px] relative overflow-hidden text-white">
-        <div className="container h-full">
+        <div className="container h-full relative z-10">
           <div className="flex flex-col justify-center -mt-5 lg:mt-0 h-full items-start">
             <h2 className="uppercase font-extrabold text-xl lg:text-2xl">
               <span className="text-color_red_second">Центр</span> IT-РЕШЕНИЙ
@@ -20,7 +20,7 @@ export default function HomePage() {
         <img
           src="/assets/vector/main_bg_line.svg"
           alt=""
-          className="absolute top-0 right-0 lg:w-1/2 h-full object-cover"
+          className="absolute top-0 right-0 lg:w-1/2 h-full object-cover z-0"
           aria-hidden="true"
         />
       </section>

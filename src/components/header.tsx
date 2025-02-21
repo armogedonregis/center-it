@@ -62,7 +62,7 @@ export const Header = () => {
         >
           <ul
             className={`
-              flex flex-col items-center gap-4 transition-all duration-500 delay-100
+              flex flex-col items-center gap-4 transition-all duration-500 delay-100 lg:text-sm xl:text-base
               lg:flex-row lg:transition-none
               ${
                 isMenuOpen
