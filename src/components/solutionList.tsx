@@ -157,7 +157,7 @@ export default function SolutionList() {
             className="flex lg:flex-row flex-col items-start gap-6 mt-16 lg:mt-[129px]"
           >
             <div className="bg-main_card_bg lg:w-1/2 rounded-3xl p-6 text-white">
-              <h5 className="text-3xl font-bold">{item.title}</h5>
+              <h5 className="text-2xl lg:text-3xl font-bold">{item.title}</h5>
               <p className="mt-2 text-base">{item.description}</p>
               <div
                 className="mt-2 relative w-full aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer"
@@ -174,8 +174,8 @@ export default function SolutionList() {
             </div>
             <div className="lg:w-1/2">
               <div className="bg-main_card_bg rounded-3xl p-6 text-white">
-                <h5>{item.functionality}</h5>
-                <div className="space-y-4">
+                <h5 className="text-xl lg:text-2xl font-medium">{item.functionality}</h5>
+                <div className="space-y-4 mt-4">
                   {item.functionality_array.map((item) => {
                     return (
                       <div
@@ -195,8 +195,8 @@ export default function SolutionList() {
                 </div>
               </div>
               <div className="mt-4 bg-circle_bg rounded-3xl p-6 text-white">
-                <h5>{item.advantages}</h5>
-                <div className="space-y-4">
+                <h5 className="text-xl lg:text-2xl font-medium">{item.advantages}</h5>
+                <div className="space-y-4 mt-4">
                   {item.advantages_array.map((x) => {
                     return (
                       <div

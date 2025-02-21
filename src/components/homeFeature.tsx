@@ -1,8 +1,12 @@
+import { RequestButton } from "./RequestButton";
+
 export default function HomeFeature() {
   return (
     <section className="bg-main_bg_with_noise bg-blend-soft-light bg-repeat text-white py-16">
       <div className="container">
-        <h2 className="font-bold text-3xl">Преимущества работы с нами</h2>
+        <h2 className="font-bold text-2xl lg:text-3xl">
+          Преимущества работы с нами
+        </h2>
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-4">
           <div>
             <div className="bg-main_card_bg_second h-[180px] lg:h-[117px] overflow-hidden rounded-3xl py-4 px-6 relative">
@@ -48,10 +52,20 @@ export default function HomeFeature() {
       <div className="mt-16 relative min-h-[394px]">
         <div className="flex flex-col lg:flex-row">
           <div className="container relative z-10">
-            <h2 className="font-bold text-3xl">Контакты</h2>
+            <h2 className="font-bold text-2xl lg:text-3xl">Контакты</h2>
             <div className="lg:max-w-[50%] pr-5 mt-4">
-              <div className="text-xl">8 (952) 202-77-30</div>
-              <div className="text-xl">main@citr-spb.ru</div>
+              <a
+                href="tel:+79522027730"
+                className="text-lg lg:text-xl hover:opacity-80 transition-opacity block"
+              >
+                8 (952) 202-77-30
+              </a>
+              <a
+                href="mailto:main@citr-spb.ru"
+                className="text-lg lg:text-xl hover:opacity-80 transition-opacity block"
+              >
+                main@citr-spb.ru
+              </a>
 
               <div className="mt-4">
                 <p>Понедельник - Пятница</p>
@@ -68,9 +82,9 @@ export default function HomeFeature() {
                 <p>и наши специалисты свяжутся с вами</p>
                 <p>в ближайшее время</p>
 
-                <div className="mt-4 block w-full bg-color_red hover:bg-red-700 transition-colors text-center py-3 rounded-xl cursor-pointer">
+                <RequestButton className="mt-4 block w-full bg-color_red hover:bg-red-700 transition-colors text-center py-3 rounded-xl cursor-pointer">
                   Отправить заявку
-                </div>
+                </RequestButton>
               </div>
             </div>
           </div>

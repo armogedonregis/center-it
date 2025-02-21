@@ -1,3 +1,5 @@
+import { RequestButton } from "@/components/RequestButton";
+
 const Array = [
   {
     id: 1,
@@ -95,9 +97,9 @@ export default function ServicesPage() {
                   </ul>
                 )}
 
-                <button className="bg-color_red hover:bg-red-700 transition-colors duration-200 text-white px-6 h-10 rounded-xl mt-auto w-fit">
+                <RequestButton className="bg-color_red hover:bg-red-700 transition-colors duration-200 text-white px-6 h-10 rounded-xl mt-auto w-fit">
                   Оставить заявку
-                </button>
+                </RequestButton>
               </div>
             );
           })}

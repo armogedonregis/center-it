@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { RequestButton } from "./RequestButton";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -121,9 +122,9 @@ export const Header = () => {
             transition-opacity duration-300 lg:hidden
           `}
               >
-                <button className="bg-color_red text-white px-4 py-2 rounded-md font-bold text-xs hover:bg-red-700 transition-colors duration-200">
+                <RequestButton className="bg-color_red text-white px-4 py-2 rounded-md font-bold text-xs hover:bg-red-700 transition-colors duration-200">
                   Оставить заявку
-                </button>
+                </RequestButton>
               </div>
             </li>
           </ul>
@@ -135,9 +136,9 @@ export const Header = () => {
             lg:block
           `}
         >
-          <button className="bg-color_red text-white px-4 py-2 rounded-md font-bold text-xs hover:bg-red-700 transition-colors duration-200">
+          <RequestButton className="bg-color_red text-white px-4 py-2 rounded-md font-bold text-xs hover:bg-red-700 transition-colors duration-200">
             Оставить заявку
-          </button>
+          </RequestButton>
         </div>
       </div>
     </header>

@@ -3,6 +3,8 @@ import { Roboto } from "next/font/google";
 import "../styles/globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { ModalProvider } from "@/components/providers/ModalProvider";
+import { FormModal } from "@/components/FormModal";
 
 const geistSans = Roboto({
   variable: "--font-geist-sans",
@@ -23,11 +25,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable}`}>
-        <div className="min-h-screen flex flex-col bg-white text-black overflow-hidden">
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </div>
+        <ModalProvider>
+          <div className="min-h-screen flex flex-col bg-white text-black overflow-hidden">
+            <Header />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+            <FormModal />
+          </div>
+        </ModalProvider>
       </body>
     </html>
   );

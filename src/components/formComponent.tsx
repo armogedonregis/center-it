@@ -27,8 +27,18 @@ export const FormComponent = ({
             <h2 className="text-2xl font-semibold">{title}</h2>
             <p className="text-base mt-4">{description}</p>
             <div className="flex items-center gap-8 mt-4 text-xl font-semibold">
-              <div>{phoneNumber}</div>
-              <div>{email}</div>
+              <a
+                href={`tel:${phoneNumber.replace(/[^\d+]/g, "")}`}
+                className="hover:opacity-80 transition-opacity"
+              >
+                {phoneNumber}
+              </a>
+              <a
+                href={`mailto:${email}`}
+                className="hover:opacity-80 transition-opacity"
+              >
+                {email}
+              </a>
             </div>
             <div className="mt-4 text-base whitespace-pre-line">{timeWork}</div>
           </div>
@@ -60,7 +70,7 @@ export const FormComponent = ({
                   placeholder="Описание задачи"
                 />
               </div>
-              <button className="bg-button_red focus:outline-none mt-4 py-3 text-white font-semibold text-base w-full rounded-xl">
+              <button className="bg-button_red focus:outline-none hover:opacity-80 transition-opacity duration-200 mt-4 py-3 text-white font-semibold text-base w-full rounded-xl">
                 Отправить заявку
               </button>
             </form>

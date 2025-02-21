@@ -7,8 +7,8 @@ export default function SolutionsPage() {
     <>
       <section className="bg-main_bg_with_noise bg-blend-soft-light bg-repeat text-white py-16">
         <div className="container">
-          <h2 className="text-3xl font-medium">Решения</h2>
-          <p className="mt-2 text-base max-w-[750px]">
+          <h2 className="text-2xl lg:text-3xl font-medium">Решения</h2>
+          <p className="mt-2 text-sm lg:text-base max-w-[750px]">
             ЦЕНТР IT-РЕШЕНИЙ разрабатывает комплексные IT-решения, направленные
             на автоматизацию и цифровизацию бизнеса. Мы предлагаем
             индивидуальные технологические решения, способствующие повышению

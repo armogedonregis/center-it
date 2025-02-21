@@ -1,4 +1,5 @@
 import { FormComponent } from "@/components/formComponent";
+import { RequestButton } from "@/components/RequestButton";
 
 const Array = [
   {
@@ -55,8 +56,8 @@ export default function PricePage() {
     <>
       <section className="bg-main_bg_with_noise bg-blend-soft-light bg-repeat text-white py-16">
         <div className="container">
-          <h2 className="text-3xl font-medium">Стоимость услуг</h2>
-          <p className="mt-2 text-base max-w-[750px]">
+          <h2 className="text-2xl lg:text-3xl font-medium">Стоимость услуг</h2>
+          <p className="mt-2 text-sm lg:text-base max-w-[750px]">
             ЦЕНТР IT-РЕШЕНИЙ предоставляет полный спектр IT-услуг, направленных
             на автоматизацию бизнес-процессов, разработку программного
             обеспечения и интеграцию IT-решений. Наши решения позволяют
@@ -64,10 +65,10 @@ export default function PricePage() {
             сократить издержки.
           </p>
 
-          <h3 className="text-3xl mt-8 font-medium">
+          <h3 className="text-2xl lg:text-3xl mt-8 font-medium">
             Факторы, влияющие на стоимость:
           </h3>
-          <p className="mt-2 text-base max-w-[750px]">
+          <p className="mt-2 text-sm lg:text-base max-w-[750px]">
             Создавать высокотехнологичные, надежные и удобные цифровые решения,
             которые упрощают управление бизнесом, повышают его
             конкурентоспособность и обеспечивают безопасную работу в современном
@@ -94,9 +95,9 @@ export default function PricePage() {
                   <p className="mt-2 text-base">{item.postDescription}</p>
                   {item.tarif ? (
                     <div className="mt-4 lg:mt-auto">
-                      <button className="bg-main_card_bg h-[46px] px-6 rounded-xl">
+                      <RequestButton className="bg-main_card_bg hover:opacity-80 transition-opacity duration-200 h-[46px] px-6 rounded-xl">
                         Отправить заявку
-                      </button>
+                      </RequestButton>
                     </div>
                   ) : null}
                 </div>

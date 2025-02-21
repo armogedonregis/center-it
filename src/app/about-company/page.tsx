@@ -194,7 +194,20 @@ export default function AboutPage() {
                 <div>
                   <span className="text-base font-medium">Контакты:</span>
                   <div className="text-sm">
-                    телефон: 8 (952) 202-77-30; email: main@citr-spb.ru
+                    телефон:{" "}
+                    <a
+                      href="tel:+79522027730"
+                      className="hover:opacity-80 transition-opacity"
+                    >
+                      8 (952) 202-77-30
+                    </a>
+                    ; email:{" "}
+                    <a
+                      href="mailto:main@citr-spb.ru"
+                      className="hover:opacity-80 transition-opacity"
+                    >
+                      main@citr-spb.ru
+                    </a>
                   </div>
                 </div>
               </div>

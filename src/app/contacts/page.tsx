@@ -1,4 +1,5 @@
 import { FormComponent } from "@/components/formComponent";
+import { RequestButton } from "@/components/RequestButton";
 
 export default function ContactsPage() {
   return (
@@ -13,7 +14,7 @@ export default function ContactsPage() {
           09:30 - 18:00`}
         center={false}
       />
-      
+
       <section className="bg-main_bg py-16 text-white">
         <div className="mt-16 relative min-h-[394px]">
           <div className="flex flex-col lg:flex-row">
@@ -59,14 +60,14 @@ export default function ContactsPage() {
                 </div>
 
                 <div className="mt-8 bg-main_card_bg_second rounded-3xl px-8 py-6">
-                  <p className="text-xl">
+                  <p className="text-lg lg:text-xl">
                     Мы всегда на связи и готовы помочь вам реализовать самые
                     амбициозные IT-проекты!
                   </p>
 
-                  <div className="mt-4 block w-full bg-color_red hover:bg-red-700 transition-colors text-center py-3 rounded-xl cursor-pointer">
+                  <RequestButton className="mt-4 block w-full bg-color_red hover:bg-red-700 transition-colors text-center py-3 rounded-xl cursor-pointer">
                     Отправить заявку
-                  </div>
+                  </RequestButton>
                 </div>
               </div>
             </div>
