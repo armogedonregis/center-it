@@ -18,7 +18,7 @@ export default function ContactsPage() {
       <section className="bg-main_bg py-16 text-white">
         <div className="mt-16 relative min-h-[394px]">
           <div className="flex flex-col lg:flex-row">
-            <div className="container relative z-10">
+            <div className="container">
               <div className="lg:max-w-[464px] mt-4">
                 <div>
                   <h2 className="text-2xl font-bold mb-2">Наш офис</h2>

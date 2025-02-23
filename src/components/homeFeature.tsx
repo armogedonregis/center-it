@@ -51,7 +51,7 @@ export default function HomeFeature() {
 
       <div className="mt-16 relative min-h-[394px]">
         <div className="flex flex-col lg:flex-row">
-          <div className="container relative z-10">
+          <div className="container">
             <h2 className="font-bold text-2xl lg:text-3xl">Контакты</h2>
             <div className="lg:max-w-[50%] pr-5 mt-4">
               <a
