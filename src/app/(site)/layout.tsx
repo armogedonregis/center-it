@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import "../styles/globals.css";
+import "../../styles/globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { ModalProvider } from "@/components/providers/ModalProvider";
@@ -8,8 +8,8 @@ import { FormModal } from "@/components/FormModal";
 
 const geistSans = Roboto({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  subsets: ["cyrillic"],
+  weight: ["100", "300", "400", "500", "700", "900"],
 });
 
 export const metadata: Metadata = {
