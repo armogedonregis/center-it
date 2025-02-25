@@ -16,7 +16,7 @@ export const InputField: React.FC<InputFieldProps> = ({
   type = 'text',
 }) => {
   return (
-    <div className="mb-4">
+    <div className="mb-4 w-full">
       <label className="block text-sm font-medium text-gray-700 mb-1">{label}</label>
       <input
         type={type}

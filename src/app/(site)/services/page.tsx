@@ -1,6 +1,7 @@
 import { RequestButton } from "@/components/RequestButton";
 import { promises as fs } from 'fs';
 import path from 'path';
+import { Metadata } from "next";
 
 // Создаем интерфейс для данных услуг
 interface ServiceItem {
@@ -14,6 +15,7 @@ interface ServiceItem {
 interface ServicesContent {
   seo: {
     title: string;
+    description?: string;
   };
   hero: {
     title: string;
@@ -30,6 +32,15 @@ async function getServicesData(): Promise<ServicesContent> {
   const filePath = path.join(process.cwd(), 'src/data/services.json');
   const fileContents = await fs.readFile(filePath, 'utf8');
   return JSON.parse(fileContents);
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const servicesData = await getServicesData();
+  
+  return {
+    title: servicesData.seo.title,
+    description: servicesData.seo.description || '',
+  };
 }
 
 export default async function ServicesPage() {

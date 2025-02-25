@@ -3,12 +3,22 @@ import { RequestButton } from "@/components/RequestButton";
 import { promises as fs } from 'fs';
 import path from 'path';
 import { ContactsContent } from "@/types/contacts";
+import { Metadata } from "next";
 
 // Функция для получения данных контактов
 async function getContactsData(): Promise<ContactsContent> {
   const filePath = path.join(process.cwd(), 'src/data/contacts.json');
   const fileContents = await fs.readFile(filePath, 'utf8');
   return JSON.parse(fileContents);
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const contactsData = await getContactsData();
+  
+  return {
+    title: contactsData.seo.title,
+    description: contactsData.seo.description || '',
+  };
 }
 
 export default async function ContactsPage() {

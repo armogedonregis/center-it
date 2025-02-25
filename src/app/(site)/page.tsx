@@ -4,12 +4,22 @@ import { RequestButton } from "@/components/RequestButton";
 import { promises as fs } from "fs";
 import path from "path";
 import { HomeContent } from "@/types/home";
+import { Metadata } from "next";
 
 // Функция для получения данных с сервера
 async function getHomeData(): Promise<HomeContent> {
   const filePath = path.join(process.cwd(), "src/data/home.json");
   const fileContents = await fs.readFile(filePath, "utf8");
   return JSON.parse(fileContents);
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const homeData = await getHomeData();
+  
+  return {
+    title: homeData.seo.title,
+    description: homeData.seo.description || '',
+  };
 }
 
 export default async function HomePage() {

@@ -16,7 +16,7 @@ export const TextareaField: React.FC<TextareaFieldProps> = ({
   rows = 4,
 }) => {
   return (
-    <div className="mb-4">
+    <div className="mb-4 w-full">
       <label className="block text-sm font-medium text-gray-700 mb-1">{label}</label>
       <textarea
         value={value}

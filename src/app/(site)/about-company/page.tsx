@@ -1,5 +1,6 @@
 import { promises as fs } from 'fs';
 import path from 'path';
+import { Metadata } from "next";
 
 // Интерфейс для данных о компании
 interface ValueItem {
@@ -11,6 +12,7 @@ interface ValueItem {
 interface AboutCompanyContent {
   seo: {
     title: string;
+    description?: string;
   };
   hero: {
     title: string;
@@ -70,6 +72,15 @@ async function getAboutCompanyData(): Promise<AboutCompanyContent> {
   const filePath = path.join(process.cwd(), 'src/data/about.json');
   const fileContents = await fs.readFile(filePath, 'utf8');
   return JSON.parse(fileContents);
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const aboutData = await getAboutCompanyData();
+  
+  return {
+    title: aboutData.seo.title,
+    description: aboutData.seo.description || '',
+  };
 }
 
 export default async function AboutPage() {

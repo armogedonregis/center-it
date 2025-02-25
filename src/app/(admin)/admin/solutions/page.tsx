@@ -183,11 +183,6 @@ export default function AdminSolutionsPage() {
                 onChange={(value) => handleSolutionChange(index, 'description', value)}
                 rows={3}
               />
-              <InputField
-                label="Иконка (путь к изображению)"
-                value={solution.icon || ''}
-                onChange={(value) => handleSolutionChange(index, 'icon', value)}
-              />
             </div>
           ))}
         </AdminSection>

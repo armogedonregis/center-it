@@ -103,36 +103,17 @@ export default function AdminAboutCompanyPage() {
 
   const handleAdvantageItemChange = (index: number, field: string, value: string) => {
     if (!content) return
-    
-    const newItems = [...content.advantages.items]
-    newItems[index] = {
-      ...newItems[index],
-      [field]: value
+    const updatedItems = [...content.advantages.items]
+    updatedItems[index] = { 
+      ...updatedItems[index], 
+      [field]: value 
     }
-    
-    setContent({
-      ...content,
-      advantages: {
-        ...content.advantages,
-        items: newItems
-      }
-    })
-  }
 
-  const addAdvantageItem = () => {
-    if (!content) return
-    
-    const newItem = {
-      id: Date.now(),
-      title: 'Новое преимущество',
-      description: 'Описание преимущества'
-    }
-    
     setContent({
       ...content,
       advantages: {
         ...content.advantages,
-        items: [...content.advantages.items, newItem]
+        items: updatedItems
       }
     })
   }
@@ -237,15 +218,6 @@ export default function AdminAboutCompanyPage() {
               />
             </div>
           ))}
-          
-          <div className="mt-4">
-            <button
-              onClick={addAdvantageItem}
-              className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
-            >
-              + Добавить преимущество
-            </button>
-          </div>
         </AdminSection>
 
         <div className="flex justify-end mt-6">

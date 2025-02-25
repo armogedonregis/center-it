@@ -108,24 +108,6 @@ export default function AdminHomePage() {
     })
   }
 
-  const addFeatureItem = () => {
-    if (!content) return
-    
-    const newItem = {
-      title: 'Новая особенность',
-      description: 'Описание особенности',
-      icon: '/assets/vector/feature_icon.svg'
-    }
-    
-    setContent({
-      ...content,
-      features: {
-        ...content.features,
-        items: [...content.features.items, newItem]
-      }
-    })
-  }
-
   const handleAdvantagesChange = (field: string, value: string) => {
     if (!content) return
     setContent({
@@ -150,24 +132,6 @@ export default function AdminHomePage() {
       advantages: {
         ...content.advantages,
         items: updatedItems
-      }
-    })
-  }
-
-  const addAdvantageItem = () => {
-    if (!content) return
-
-    const newItem = {
-      title: 'Новое преимущество',
-      subtitle: 'Подзаголовок преимущества',
-      icon: '/assets/vector/advantages/advantage-icon.svg'
-    }
-
-    setContent({
-      ...content,
-      advantages: {
-        ...content.advantages,
-        items: [...content.advantages.items, newItem]
       }
     })
   }
@@ -240,21 +204,6 @@ export default function AdminHomePage() {
     })
   }
 
-  const addFormDescriptionItem = () => {
-    if (!content) return
-    
-    setContent({
-      ...content,
-      contacts: {
-        ...content.contacts,
-        form: {
-          ...content.contacts.form,
-          description: [...content.contacts.form.description, 'Новый пункт']
-        }
-      }
-    })
-  }
-
   if (isLoading || !content) {
     return <div className="text-center py-10">Загрузка данных...</div>
   }
@@ -299,15 +248,6 @@ export default function AdminHomePage() {
             rows={3}
           />
           
-          <div className="mb-4 flex justify-end">
-            <button
-              onClick={addFeatureItem}
-              className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
-            >
-              Добавить особенность
-            </button>
-          </div>
-
           {content.features.items.map((item, index) => (
             <div key={index} className="border p-4 rounded-md mb-4 bg-gray-50">
               <div className="flex justify-between items-center mb-3">
@@ -324,11 +264,6 @@ export default function AdminHomePage() {
                 onChange={(value) => handleFeatureItemChange(index, 'description', value)}
                 rows={3}
               />
-              <InputField
-                label="Иконка (путь к SVG)"
-                value={item.icon}
-                onChange={(value) => handleFeatureItemChange(index, 'icon', value)}
-              />
             </div>
           ))}
         </AdminSection>
@@ -340,15 +275,6 @@ export default function AdminHomePage() {
             onChange={(value) => handleAdvantagesChange('title', value)}
           />
           
-          <div className="mb-4 flex justify-end">
-            <button
-              onClick={addAdvantageItem}
-              className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
-            >
-              Добавить преимущество
-            </button>
-          </div>
-
           {content.advantages.items.map((item, index) => (
             <div key={index} className="border p-4 rounded-md mb-4 bg-gray-50">
               <div className="flex justify-between items-center mb-3">
@@ -363,11 +289,6 @@ export default function AdminHomePage() {
                 label="Подзаголовок"
                 value={item.subtitle}
                 onChange={(value) => handleAdvantageItemChange(index, 'subtitle', value)}
-              />
-              <InputField
-                label="Иконка (путь к SVG)"
-                value={item.icon}
-                onChange={(value) => handleAdvantageItemChange(index, 'icon', value)}
               />
             </div>
           ))}
@@ -413,15 +334,6 @@ export default function AdminHomePage() {
           </InputGroup>
           
           <InputGroup title="Форма обратной связи">
-            <div className="mb-4 flex justify-end">
-              <button
-                onClick={addFormDescriptionItem}
-                className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
-              >
-                Добавить пункт описания
-              </button>
-            </div>
-            
             {content.contacts.form.description.map((item, index) => (
               <div key={index} className="border p-4 rounded-md mb-4 bg-gray-50">
                 <div className="flex justify-between items-center mb-3">

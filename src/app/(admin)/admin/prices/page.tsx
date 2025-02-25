@@ -80,30 +80,6 @@ export default function AdminPricesPage() {
     });
   };
 
-  const addFactor = () => {
-    if (!content) return;
-
-    const newId = content.factors.items.length > 0
-      ? Math.max(...content.factors.items.map(item => item.id)) + 1
-      : 1;
-
-    const newFactor: PriceFactorItem = {
-      id: newId,
-      title: 'Новый фактор',
-      description: 'Описание нового фактора',
-      postDescription: 'Дополнительное описание',
-      tarif: false,
-    };
-
-    setContent({
-      ...content,
-      factors: {
-        ...content.factors,
-        items: [...content.factors.items, newFactor],
-      },
-    });
-  };
-
   if (isLoading || !content) {
     return <div className="text-center py-10">Загрузка данных...</div>
   }
@@ -182,14 +158,6 @@ export default function AdminPricesPage() {
                 </div>
               </div>
             ))}
-            <div className="mt-4">
-              <button
-                onClick={addFactor}
-                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-              >
-                Добавить фактор
-              </button>
-            </div>
           </div>
         </AdminSection>
 

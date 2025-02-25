@@ -2,6 +2,7 @@ import { FormComponent } from "@/components/formComponent";
 import { RequestButton } from "@/components/RequestButton";
 import { promises as fs } from "fs";
 import path from "path";
+import { Metadata } from "next";
 
 // Интерфейс для данных цен
 interface PriceItem {
@@ -40,6 +41,15 @@ async function getPricesData(): Promise<PricesContent> {
   const filePath = path.join(process.cwd(), "src/data/prices.json");
   const fileContents = await fs.readFile(filePath, "utf8");
   return JSON.parse(fileContents);
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const pricesData = await getPricesData();
+  
+  return {
+    title: pricesData.seo.title,
+    description: pricesData.seo.description || '',
+  };
 }
 
 export default async function PricePage() {

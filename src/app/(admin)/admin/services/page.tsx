@@ -176,11 +176,6 @@ export default function AdminServicesPage() {
                   onChange={(value) => handleServiceChange(serviceIndex, 'description', value)}
                   rows={3}
                 />
-                <InputField
-                  label="Путь к иконке"
-                  value={service.icon}
-                  onChange={(value) => handleServiceChange(serviceIndex, 'icon', value)}
-                />
                 
                 <div className="mt-4">
                   <div className="flex justify-between items-center mb-2">
