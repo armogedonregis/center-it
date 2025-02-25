@@ -84,9 +84,9 @@ export default async function AboutPage() {
 
           <div className="grid lg:grid-cols-2 gap-6 mt-16">
             <div className="bg-main_card_bg rounded-3xl p-6">
-              <h3 className="text-xl font-semibold">Кто мы</h3>
+              <h3 className="text-xl font-semibold">{aboutData.whoWeAre?.title}</h3>
               <p className="text-sm mt-2">
-                {aboutData.hero.description}
+                {aboutData.whoWeAre?.description}
               </p>
             </div>
 
