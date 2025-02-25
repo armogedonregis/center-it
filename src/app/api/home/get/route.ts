@@ -1,15 +1,18 @@
-import { readFile } from 'fs/promises'
+import { promises as fs } from 'fs'
 import { NextResponse } from 'next/server'
 import path from 'path'
 
 export async function GET() {
   try {
     const filePath = path.join(process.cwd(), 'src/data/home.json')
-    const content = await readFile(filePath, 'utf-8')
-    return NextResponse.json(JSON.parse(content))
+    const fileData = await fs.readFile(filePath, 'utf8')
+    const data = JSON.parse(fileData)
+    
+    return NextResponse.json(data)
   } catch (error) {
+    console.error('Error reading home data:', error)
     return NextResponse.json(
-      { error: 'Ошибка получения данных' },
+      { error: 'Failed to fetch home data' },
       { status: 500 }
     )
   }

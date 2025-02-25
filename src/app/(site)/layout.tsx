@@ -8,7 +8,7 @@ import { FormModal } from "@/components/FormModal";
 
 const geistSans = Roboto({
   variable: "--font-geist-sans",
-  subsets: ["cyrillic"],
+  subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
 });
 
@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable}`}>
+      <body className={`${geistSans.className}`}>
         <ModalProvider>
           <div className="min-h-screen flex flex-col bg-white text-black overflow-hidden">
             <Header />

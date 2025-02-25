@@ -1,73 +1,51 @@
 import { RequestButton } from "@/components/RequestButton";
+import { promises as fs } from 'fs';
+import path from 'path';
 
-const Array = [
-  {
-    id: 1,
-    title: "Разработка комплексных решений 1С",
-    description:
-      "Мы создаем и адаптируем решения на платформе 1С:Предприятие с учетом специфики бизнеса. Наша команда разрабатывает индивидуальные конфигурации, а также дорабатывает стандартные модули 1С, адаптируя их под нужды клиентов.",
-    icon: "/assets/vector/services_icon_1.svg",
-    list: [
-      "Настройка учетных систем и автоматизация бизнес-процессов.",
-      "Интеграция с внешними сервисами и базами данных.",
-      "Оптимизация стандартных конфигураций под индивидуальные требования.",
-      "Разработка специализированных отчетов и интерфейсов.",
-    ],
-  },
-  {
-    id: 2,
-    title: "Внедрение 1С:Предприятие",
-    description:
-      "Автоматизация среднего и крупного бизнеса на базе платформы 1С:Предприятие.",
-    icon: "/assets/vector/services_icon_1.svg",
-    list: [
-      "Анализ бизнес-процессов и подбор оптимального решения.",
-      "Внедрение систем управления финансами, складом, производством и логистикой.",
-      "Повышение эффективности работы предприятия за счет оптимизации процессов.",
-      "Обучение персонала и техническая поддержка.",
-    ],
-  },
-  {
-    id: 3,
-    title: "Разработка специализированных приложений на C++",
-    description:
-      "Создаем мощные и гибкие программные решения для различных отраслей.",
-    icon: "/assets/vector/services_icon_2.svg",
-    list: [
-      "Разработка высокопроизводительных приложений для управления и анализа данных.",
-      "Интеграция с промышленными и корпоративными системами.",
-      "Оптимизация вычислительных процессов и автоматизация задач.",
-    ],
-  },
-  {
-    id: 4,
-    title: "Интеграция программных продуктов",
-    description:
-      "Наши специалисты обеспечивают бесшовную интеграцию различных IT-систем для повышения эффективности бизнеса.",
-    icon: "/assets/vector/services_icon_3.svg",
-    list: [
-      "Синхронизация данных между системами различных производителей.",
-      "Автоматизация обмена информацией и устранение дублирующих операций.",
-      "Объединение корпоративных решений в единую экосистему.",
-      "Настройка API и разработка коннекторов между различными платформами.",
-    ],
-  },
-];
+// Создаем интерфейс для данных услуг
+interface ServiceItem {
+  id: number;
+  title: string;
+  description: string;
+  icon: string;
+  list: string[];
+}
 
-export default function ServicesPage() {
+interface ServicesContent {
+  seo: {
+    title: string;
+  };
+  hero: {
+    title: string;
+    description: string;
+  };
+  services: ServiceItem[];
+  footer: {
+    text: string;
+  };
+}
+
+// Функция для получения данных услуг
+async function getServicesData(): Promise<ServicesContent> {
+  const filePath = path.join(process.cwd(), 'src/data/services.json');
+  const fileContents = await fs.readFile(filePath, 'utf8');
+  return JSON.parse(fileContents);
+}
+
+export default async function ServicesPage() {
+  // Получаем данные
+  const servicesData = await getServicesData();
+  
   return (
     <section className="bg-main_bg_with_noise bg-blend-soft-light bg-repeat text-white py-16">
       <div className="container">
-        <h2 className="text-3xl font-medium">Услуги</h2>
+        <h2 className="text-3xl font-medium">{servicesData.hero.title}</h2>
         <p className="mt-2 text-base max-w-[750px]">
-          ЦЕНТР IT-РЕШЕНИЙ предоставляет полный спектр IT-услуг, направленных на
-          автоматизацию бизнес-процессов, разработку программного обеспечения и
-          интеграцию IT-решений. Наши решения позволяют оптимизировать работу
-          предприятий, повысить их эффективность и сократить издержки.
+          {servicesData.hero.description}
         </p>
 
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
-          {Array.map((item) => {
+          {servicesData.services.map((item) => {
             return (
               <div
                 key={item.id}
@@ -106,10 +84,7 @@ export default function ServicesPage() {
         </div>
         <div className="mt-6 lg:mt-8 bg-circle_bg rounded-3xl p-6 text-white">
           <p className="text-base lg:text-xl">
-            Наши IT-решения направлены на повышение удобства работы с
-            информацией, устранение ручных операций и сокращение издержек
-            бизнеса. Мы гарантируем надежность, безопасность и высокий уровень
-            поддержки наших клиентов.
+            {servicesData.footer.text}
           </p>
         </div>
       </div>

@@ -1,39 +1,20 @@
 import Link from "next/link";
+import { HomeContent } from "@/types/home";
 
-const features = [
-  {
-    title: "Автоматизация бизнес-процессов",
-    description: "Ускорьте работу вашей компании с передовыми IT-решениями",
-    icon: "/assets/vector/home_feature_1.svg",
-  },
-  {
-    title: "Разработка и внедрение 1С",
-    description: "Оптимизация учёта и управления на платформе 1С",
-    icon: "/assets/vector/home_feature_2.svg",
-  },
-  {
-    title: "Разработка программного обеспечения",
-    description: "Создание индивидуальных решений для бизнеса",
-    icon: "/assets/vector/home_feature_3.svg",
-  },
-  {
-    title: "Информационная безопасность",
-    description: "Защитите свои данные и процессы",
-    icon: "/assets/vector/home_feature_4.svg",
-  },
-];
+interface HomeMainPathProps {
+  features: HomeContent['features'];
+}
 
-export const HomeMainPath = () => {
+export const HomeMainPath = ({ features }: HomeMainPathProps) => {
   return (
     <section className="bg-main_feature_bg text-black py-16">
       <div className="container">
-        <h2>Ключевые IT-направлениями компании</h2>
+        <h2>{features.title}</h2>
         <p>
-          Мы разрабатываем, внедряем и сопровождаем передовые IT-решения для
-          бизнеса
+          {features.description}
         </p>
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8 text-white">
-          {features.map((feature) => (
+          {features.items.map((feature) => (
             <div
               key={feature.title}
               className="bg-main_card_bg rounded-3xl px-6 py-11 flex lg:flex-row flex-col items-center gap-8"

@@ -1,91 +1,99 @@
-const values = [
-  {
-    id: 1,
-    title: "Инновации",
-    description:
-      "Мы постоянно следим за новейшими IT-подходами и внедряем передовые технологии в наши решения.",
-  },
-  {
-    id: 2,
-    title: "Качество",
-    description:
-      "Каждый проект проходит строгий контроль качества, чтобы гарантировать стабильность, надежность и удобство использования.",
-  },
-  {
-    id: 3,
-    title: "Индивидуальный подход",
-    description:
-      "Мы исследуем особенности каждого бизнеса и предлагаем персонализированные решения, учитывающие пожелания его бизнеса.",
-  },
-  {
-    id: 4,
-    title: "Прозрачность",
-    description:
-      "Открытость в работе, четкие сроки выполнения и понятное ценообразование.",
-  },
-  {
-    id: 5,
-    title: "Долгосрочное партнерство",
-    description:
-      "Мы стремимся к долгосрочному сотрудничеству, обеспечивая поддержку и развитие IT-решений на протяжении всего жизненного цикла.",
-  },
-];
+import { promises as fs } from 'fs';
+import path from 'path';
 
-const advantages = [
-  {
-    id: 1,
-    title: "Комплексный подход",
-    description:
-      "От анализа бизнес-процессов до внедрения и поддержки IT-решений.",
-  },
-  {
-    id: 2,
-    title: "Гибкость и масштабируемость",
-    description: "Адаптируемся под ваши меняющиеся потребности.",
-  },
-  {
-    id: 3,
-    title: "Надежность и безопасность",
-    description: "Обеспечиваем надежную информационную безопасность.",
-  },
-  {
-    id: 4,
-    title: "Экспертная команда",
-    description: "Сертифицированные специалисты с многолетним опытом в IT.",
-  },
-];
+// Интерфейс для данных о компании
+interface ValueItem {
+  id: number;
+  title: string;
+  description: string;
+}
 
-export default function AboutPage() {
+interface AboutCompanyContent {
+  seo: {
+    title: string;
+  };
+  hero: {
+    title: string;
+    description: string;
+  };
+  whoWeAre?: {
+    title: string;
+    description: string;
+  };
+  mission: {
+    title: string;
+    description: string;
+  };
+  values: {
+    title: string;
+    items: ValueItem[];
+  };
+  advantages: {
+    title: string;
+    items: ValueItem[];
+  };
+  partnership: {
+    text: string;
+  };
+  legalInfo: {
+    title: string;
+    officialName: {
+      label: string;
+      value: string;
+    };
+    legalAddress: {
+      label: string;
+      value: string;
+    };
+    inn: {
+      label: string;
+      value: string;
+    };
+    ogrn: {
+      label: string;
+      value: string;
+    };
+    director: {
+      label: string;
+      value: string;
+    };
+    contacts: {
+      label: string;
+      phone: string;
+      email: string;
+    };
+  };
+}
+
+// Функция для получения данных о компании
+async function getAboutCompanyData(): Promise<AboutCompanyContent> {
+  const filePath = path.join(process.cwd(), 'src/data/about.json');
+  const fileContents = await fs.readFile(filePath, 'utf8');
+  return JSON.parse(fileContents);
+}
+
+export default async function AboutPage() {
+  // Получаем данные
+  const aboutData = await getAboutCompanyData();
+  
   return (
     <>
       <section className="bg-main_bg_with_noise bg-blend-soft-light bg-repeat text-white py-16">
         <div className="container">
-          <h2 className="text-3xl font-medium">О компании</h2>
+          <h2 className="text-3xl font-medium">{aboutData.hero.title}</h2>
 
           <div className="grid lg:grid-cols-2 gap-6 mt-16">
             <div className="bg-main_card_bg rounded-3xl p-6">
               <h3 className="text-xl font-semibold">Кто мы</h3>
               <p className="text-sm mt-2">
-                ЦЕНТР IT-РЕШЕНИЙ – это инновационная IT-компания,
-                предоставляющая комплексные цифровые решения для бизнеса. Мы
-                специализируемся на разработке программного обеспечения,
-                автоматизации бизнес-процессов и внедрении передовых
-                IT-технологий, помогая нашим клиентам повышать эффективность и
-                достигать новых высот в цифровой трансформации. Наш подход
-                основан на сочетании многолетнего опыта, передовых технологий и
-                глубокой экспертизы в IT-сфере. Мы работаем с компаниями разных
-                отраслей, создавая индивидуальные решения, полностью
-                адаптированные под их бизнес-задачи.
+                {aboutData.hero.description}
               </p>
             </div>
 
             <div className="bg-main_card_bg rounded-3xl relative p-6">
-              <h3 className="text-xl font-semibold">Наша миссия</h3>
+              <h3 className="text-xl font-semibold">{aboutData.mission.title}</h3>
               <p className="text-sm mt-2 relative z-10">
-                Создавать высокотехнологичные, надежные и удобные цифровые
-                решения, которые упрощают управление бизнесом, повышают его
-                конкурентоспособность и обеспечивают безопасную работу в
-                современном цифровом пространстве.
+                {aboutData.mission.description}
               </p>
               <img
                 src="/assets/vector/about_flag.svg"
@@ -97,10 +105,10 @@ export default function AboutPage() {
           </div>
 
           <div className="mt-10 lg:mt-16">
-            <h3 className="text-2xl font-medium">Наши ценности</h3>
+            <h3 className="text-2xl font-medium">{aboutData.values.title}</h3>
             <div className="mt-4 grid gap-6">
               <div className="grid lg:grid-cols-2 gap-6">
-                {values.slice(0, 2).map((value) => (
+                {aboutData.values.items.slice(0, 2).map((value) => (
                   <div
                     key={value.id}
                     className="bg-main_card_bg rounded-2xl p-6"
@@ -112,7 +120,7 @@ export default function AboutPage() {
               </div>
 
               <div className="grid lg:grid-cols-3 gap-6">
-                {values.slice(2, 5).map((value) => (
+                {aboutData.values.items.slice(2, 5).map((value) => (
                   <div
                     key={value.id}
                     className="bg-main_card_bg rounded-2xl p-6"
@@ -126,9 +134,9 @@ export default function AboutPage() {
           </div>
 
           <div className="mt-10 lg:mt-16">
-            <h3 className="text-2xl font-medium">Почему выбирают нас</h3>
+            <h3 className="text-2xl font-medium">{aboutData.advantages.title}</h3>
             <div className="grid lg:grid-cols-2 mt-4 gap-6">
-              {advantages.map((advantage) => (
+              {aboutData.advantages.items.map((advantage) => (
                 <div
                   key={advantage.id}
                   className="bg-main_card_bg rounded-2xl p-6"
@@ -142,71 +150,67 @@ export default function AboutPage() {
 
           <div className="mt-4 bg-circle_bg rounded-3xl py-4 px-6">
             <p className="text-base lg:text-xl lg:pr-20">
-              Мы стремимся быть не просто подрядчиком, а надежным партнером в
-              цифровом развитии вашего бизнеса.
+              {aboutData.partnership.text}
             </p>
           </div>
 
           <div className="mt-16">
-            <h3 className="text-2xl font-semibold">Юридическая информация</h3>
+            <h3 className="text-2xl font-semibold">{aboutData.legalInfo.title}</h3>
             <div className="grid lg:grid-cols-2 mt-4 gap-4">
               <div>
                 <div>
                   <span className="text-base font-medium">
-                    Официальное наименование:{" "}
+                    {aboutData.legalInfo.officialName.label}{" "}
                   </span>
                   <span className="text-sm">
-                    Общество с ограниченной ответственностью «ЦЕНТР АЙТИ
-                    РЕШЕНИЙ»
+                    {aboutData.legalInfo.officialName.value}
                   </span>
                 </div>
 
                 <div className="mt-2">
                   <span className="text-base font-medium">
-                    Юридический адрес:{" "}
+                    {aboutData.legalInfo.legalAddress.label}{" "}
                   </span>
                   <span className="text-sm">
-                    188961, Ленинградская обл., м. р-н Выборгский, г.п.
-                    Светогорское, ГП Лесогорский, ш. Ленинградское, д. 32,
-                    помещ. 1
+                    {aboutData.legalInfo.legalAddress.value}
                   </span>
                 </div>
               </div>
 
               <div className="space-y-1">
                 <div>
-                  <span className="text-base font-medium">ИНН: </span>
-                  <span className="text-sm">4704117700</span>
+                  <span className="text-base font-medium">{aboutData.legalInfo.inn.label} </span>
+                  <span className="text-sm">{aboutData.legalInfo.inn.value}</span>
                 </div>
 
                 <div>
-                  <span className="text-base font-medium">ОГРН: </span>
-                  <span className="text-sm">1244700036492</span>
+                  <span className="text-base font-medium">{aboutData.legalInfo.ogrn.label} </span>
+                  <span className="text-sm">{aboutData.legalInfo.ogrn.value}</span>
                 </div>
 
                 <div>
                   <span className="text-base font-medium">
-                    Генеральный директор:
+                    {aboutData.legalInfo.director.label}
                   </span>
-                  <div className="text-sm">Стрельцов Алексей Александрович</div>
+                  <div className="text-sm">{aboutData.legalInfo.director.value}</div>
                 </div>
 
                 <div>
-                  <span className="text-base font-medium">Контакты:</span>
+                  <span className="text-base font-medium">{aboutData.legalInfo.contacts.label}</span>
                   <div className="text-sm">
                     телефон:{" "}
                     <a
-                      href="tel:+79522027730"
+                      href={`tel:${aboutData.legalInfo.contacts.phone}`}
                       className="hover:opacity-80 transition-opacity"
                     >
-                      8 (952) 202-77-30
+                      {aboutData.legalInfo.contacts.phone}
                     </a>
                     ; email:{" "}
                     <a
-                      href="mailto:main@citr-spb.ru"
+                      href={`mailto:${aboutData.legalInfo.contacts.email}`}
                       className="hover:opacity-80 transition-opacity"
                     >
-                      main@citr-spb.ru
+                      {aboutData.legalInfo.contacts.email}
                     </a>
                   </div>
                 </div>
@@ -218,3 +222,4 @@ export default function AboutPage() {
     </>
   );
 }
+
