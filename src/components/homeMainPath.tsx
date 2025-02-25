@@ -9,8 +9,8 @@ export const HomeMainPath = ({ features }: HomeMainPathProps) => {
   return (
     <section className="bg-main_feature_bg text-black py-16">
       <div className="container">
-        <h2>{features.title}</h2>
-        <p>
+        <h2 className="text-color_black text-xl font-medium lg:text-3xl">{features.title}</h2>
+        <p className="text-color_black text-base lg:text-xl">
           {features.description}
         </p>
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8 text-white">
