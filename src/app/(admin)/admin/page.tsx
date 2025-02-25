@@ -17,14 +17,6 @@ export default function AdminDashboard() {
         { title: 'Контакты', href: '/admin/contacts', description: 'Контактная информация и форма обратной связи' },
       ]
     },
-    {
-      title: 'Общие элементы',
-      description: 'Редактирование элементов, которые отображаются на всех страницах',
-      items: [
-        { title: 'Шапка сайта', href: '/admin/header', description: 'Логотип и кнопка обратной связи' },
-        { title: 'Подвал сайта', href: '/admin/footer', description: 'Информация и копирайт в нижней части сайта' },
-      ]
-    }
   ]
   
   return (

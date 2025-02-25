@@ -23,6 +23,7 @@ export default function AdminPricesPage() {
         const response = await fetch('/api/prices/get');
         if (!response.ok) throw new Error('Failed to fetch prices data');
         const data = await response.json();
+        console.log(data);
         setContent(data);
       } catch (error) {
         console.error('Error loading prices data:', error);
@@ -103,17 +104,8 @@ export default function AdminPricesPage() {
     });
   };
 
-  if (isLoading) {
-    return (
-      <div className="p-6">
-        <AdminPanelHeader title="Загрузка..." />
-        <div className="mt-6">Загрузка данных...</div>
-      </div>
-    );
-  }
-
-  if (!content) {
-    return notFound();
+  if (isLoading || !content) {
+    return <div className="text-center py-10">Загрузка данных...</div>
   }
 
   return (
