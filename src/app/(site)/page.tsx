@@ -33,7 +33,7 @@ export default async function HomePage() {
           <div className="flex flex-col justify-center -mt-5 lg:mt-0 h-full items-start">
             <h2 className="uppercase font-extrabold text-xl lg:text-2xl">
               <span className="text-color_red_second">
-                Центр
+                Центр {" "}
               </span>
               IT-
               <span className="font-normal">РЕШЕНИЙ</span>

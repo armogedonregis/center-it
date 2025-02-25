@@ -25,7 +25,7 @@ export const Header = () => {
     <header className="bg-header_bg text-white">
       <div className="container flex items-center justify-between py-3">
         <Link href="/" className="uppercase font-extrabold text-base">
-          <span className="text-color_red_second">Центр</span>
+          <span className="text-color_red_second">Центр{" "}</span>
           IT-
           <span className="font-normal">РЕШЕНИЙ</span>
         </Link>
