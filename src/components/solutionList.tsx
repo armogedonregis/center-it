@@ -20,7 +20,7 @@ export default function SolutionList({ solutions }: SolutionListProps) {
             key={item.id}
             className="flex lg:flex-row flex-col items-start gap-6 mt-16 lg:mt-[129px]"
           >
-            <div className="bg-main_card_bg lg:w-1/2 rounded-3xl px-6 pt-6 text-white">
+            <div className="bg-main_card_bg lg:w-1/2 rounded-3xl p-6 text-white">
               <h5 className="text-2xl lg:text-3xl font-bold">{item.title}</h5>
               <p className="mt-2 text-base">{item.description}</p>
               <div

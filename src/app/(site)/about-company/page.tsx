@@ -197,7 +197,7 @@ export default async function AboutPage() {
 
                 <div>
                   <span className="text-base font-medium">{aboutData.legalInfo.contacts.label}</span>
-                  <div className="text-sm">
+                  <div className="text-sm inline">
                     телефон:{" "}
                     <a
                       href={`tel:${aboutData.legalInfo.contacts.phone}`}

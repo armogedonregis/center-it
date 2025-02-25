@@ -1,7 +1,7 @@
 import { FormComponent } from "@/components/formComponent";
 import { RequestButton } from "@/components/RequestButton";
-import { promises as fs } from 'fs';
-import path from 'path';
+import { promises as fs } from "fs";
+import path from "path";
 
 // Интерфейс для данных цен
 interface PriceItem {
@@ -37,20 +37,22 @@ interface PricesContent {
 
 // Функция для получения данных цен
 async function getPricesData(): Promise<PricesContent> {
-  const filePath = path.join(process.cwd(), 'src/data/prices.json');
-  const fileContents = await fs.readFile(filePath, 'utf8');
+  const filePath = path.join(process.cwd(), "src/data/prices.json");
+  const fileContents = await fs.readFile(filePath, "utf8");
   return JSON.parse(fileContents);
 }
 
 export default async function PricePage() {
   // Получаем данные
   const pricesData = await getPricesData();
-  
+
   return (
     <>
       <section className="bg-main_bg_with_noise bg-blend-soft-light bg-repeat text-white py-16">
         <div className="container">
-          <h2 className="text-2xl lg:text-3xl font-medium">{pricesData.hero.title}</h2>
+          <h2 className="text-2xl lg:text-3xl font-medium">
+            {pricesData.hero.title}
+          </h2>
           <p className="mt-2 text-sm lg:text-base max-w-[750px]">
             {pricesData.hero.description}
           </p>
@@ -79,7 +81,20 @@ export default async function PricePage() {
                     {item.title}
                   </h5>
                   <p className="mt-2 text-base">{item.description}</p>
-                  <p className="mt-2 text-base">{item.postDescription}</p>
+                  {item.postDescription && (
+                    <p className="mt-2 text-base">
+                      {item.tarif ? (
+                        <>
+                          {item.postDescription.replace(
+                            /(\d+)/,
+                            '<span class="text-xl font-bold">$1</span>'
+                          )}
+                        </>
+                      ) : (
+                        item.postDescription
+                      )}
+                    </p>
+                  )}
                   {item.tarif ? (
                     <div className="mt-4 lg:mt-auto">
                       <RequestButton className="bg-main_card_bg hover:opacity-80 transition-opacity duration-200 h-[46px] px-6 rounded-xl">
