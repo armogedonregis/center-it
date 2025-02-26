@@ -29,7 +29,7 @@ export default async function SolutionsPage() {
     <>
       <section className="bg-main_bg_with_noise bg-blend-soft-light bg-repeat text-white py-16">
         <div className="container">
-          <h2 className="text-2xl lg:text-3xl font-medium">{solutionsData.hero.title}</h2>
+          <h2 className="text-xl lg:text-[28px] font-medium">{solutionsData.hero.title}</h2>
           <p className="mt-2 text-sm lg:text-base max-w-[750px]">
             {solutionsData.hero.description}
           </p>

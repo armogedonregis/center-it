@@ -91,7 +91,7 @@ export default async function AboutPage() {
     <>
       <section className="bg-main_bg_with_noise bg-blend-soft-light bg-repeat text-white py-16">
         <div className="container">
-          <h2 className="text-3xl font-medium">{aboutData.hero.title}</h2>
+          <h2 className="text-xl lg:text-[28px] font-medium">{aboutData.hero.title}</h2>
 
           <div className="grid lg:grid-cols-2 gap-6 mt-16">
             <div className="bg-main_card_bg rounded-3xl p-6">
@@ -116,7 +116,7 @@ export default async function AboutPage() {
           </div>
 
           <div className="mt-10 lg:mt-16">
-            <h3 className="text-2xl font-medium">{aboutData.values.title}</h3>
+            <h3 className="text-xl font-medium">{aboutData.values.title}</h3>
             <div className="mt-4 grid gap-6">
               <div className="grid lg:grid-cols-2 gap-6">
                 {aboutData.values.items.slice(0, 2).map((value) => (
@@ -145,7 +145,7 @@ export default async function AboutPage() {
           </div>
 
           <div className="mt-10 lg:mt-16">
-            <h3 className="text-2xl font-medium">{aboutData.advantages.title}</h3>
+            <h3 className="text-xl font-medium">{aboutData.advantages.title}</h3>
             <div className="grid lg:grid-cols-2 mt-4 gap-6">
               {aboutData.advantages.items.map((advantage) => (
                 <div

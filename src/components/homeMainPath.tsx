@@ -7,17 +7,17 @@ interface HomeMainPathProps {
 
 export const HomeMainPath = ({ features }: HomeMainPathProps) => {
   return (
-    <section className="bg-main_feature_bg text-black py-16">
+    <section className="bg-main_feature_bg text-black py-8 lg:py-16">
       <div className="container">
-        <h2 className="text-color_black text-xl font-medium lg:text-3xl">{features.title}</h2>
-        <p className="text-color_black text-base lg:text-xl">
+        <h2 className="text-color_black text-base font-medium lg:text-xl">{features.title}</h2>
+        <p className="text-color_black text-base mt-2 lg:text-xl">
           {features.description}
         </p>
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8 text-white">
           {features.items.map((feature) => (
             <div
               key={feature.title}
-              className="bg-main_card_bg rounded-3xl px-6 py-11 flex lg:flex-row flex-col items-center gap-8"
+              className="bg-main_card_bg rounded-3xl px-4 lg:px-6 py-6 lg:py-11 flex lg:flex-row flex-col items-start lg:items-center gap-8"
             >
               <div className="w-12 h-12">
                 <img
@@ -28,11 +28,11 @@ export const HomeMainPath = ({ features }: HomeMainPathProps) => {
                 />
               </div>
               <div>
-                <h5 className="text-xl font-semibold">{feature.title}</h5>
-                <p className="text-base mt-1">{feature.description}</p>
+                <h5 className="text-sm lg:text-xl font-semibold">{feature.title}</h5>
+                <p className="text-sm lg:text-base mt-1">{feature.description}</p>
                 <Link
                   href="/solutions"
-                  className="text-color_red_second mt-1 flex items-center gap-2"
+                  className="text-color_red_second mt-1 flex items-center gap-2 text-sm lg:text-base font-semibold"
                 >
                   Подробнее
                   <img

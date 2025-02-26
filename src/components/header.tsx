@@ -80,7 +80,7 @@ export const Header = () => {
                   : "hover:text-color_red"
               }`}
             >
-              <Link href="/about-company">О компании</Link>
+              <Link className="text-xs" href="/about-company">О компании</Link>
             </li>
             <li
               className={`transition-all duration-200 ${
@@ -89,7 +89,7 @@ export const Header = () => {
                   : "hover:text-color_red"
               }`}
             >
-              <Link href="/services">Услуги</Link>
+              <Link className="text-xs" href="/services">Услуги</Link>
             </li>
             <li
               className={`transition-all duration-200 ${
@@ -98,7 +98,7 @@ export const Header = () => {
                   : "hover:text-color_red"
               }`}
             >
-              <Link href="/price">Стоимость услуг</Link>
+              <Link className="text-xs" href="/price">Стоимость услуг</Link>
             </li>
             <li
               className={`transition-all duration-200 ${
@@ -107,7 +107,7 @@ export const Header = () => {
                   : "hover:text-color_red"
               }`}
             >
-              <Link href="/solutions">Решения</Link>
+              <Link className="text-xs" href="/solutions">Решения</Link>
             </li>
             <li
               className={`transition-all duration-200 ${
@@ -116,7 +116,7 @@ export const Header = () => {
                   : "hover:text-color_red"
               }`}
             >
-              <Link href="/contacts">Контакты</Link>
+              <Link className="text-xs" href="/contacts">Контакты</Link>
             </li>
             <li>
               <div

@@ -117,9 +117,9 @@ export const FormComponent = ({
       <div className="container">
         <div className={`flex lg:flex-row flex-col gap-6 ${center ? "items-center" : "items-start"}`}>
           <div className="text-color_black">
-            <h2 className="text-2xl font-semibold">{title}</h2>
-            <p className="text-base mt-4">{description}</p>
-            <div className="flex items-center gap-8 mt-4 text-xl font-semibold">
+            <h2 className={`${center ? "text-base lg:text-xl" : "text-xl lg:text-[28px]"} font-semibold`}>{title}</h2>
+            <p className="text-sm lg:text-base mt-4">{description}</p>
+            <div className="flex flex-col gap-2 lg:gap-4 mt-2 lg:mt-4 text-sm lg:text-base font-semibold">
               <a href={`tel:${phoneNumber.replace(/[^\d+]/g, '')}`} className="hover:opacity-80 transition-opacity">
                 {phoneNumber}
               </a>
@@ -127,12 +127,12 @@ export const FormComponent = ({
                 {email}
               </a>
             </div>
-            <div className="mt-4 text-base whitespace-pre-line">{timeWork}</div>
+            <div className="mt-2 lg:mt-4 text-sm lg:text-base whitespace-pre-line">{timeWork}</div>
           </div>
 
           <div className="bg-main_card_bg lg:min-w-[472px] rounded-3xl p-6">
             <form onSubmit={handleSubmit} noValidate>
-              <h5 className="text-base text-white">
+              <h5 className="text-sm lg:text-base text-white">
                 <span className="font-semibold">Заполните форму заявки, </span>
                 и наши специалисты<br /> свяжутся с вами в ближайшее время
               </h5>
@@ -170,7 +170,7 @@ export const FormComponent = ({
                         }));
                       }
                     }}
-                    placeholder="+7 (___) ___-__-__"
+                    placeholder="Телефон"
                     className={`bg-color_input focus:outline-none rounded-xl px-2 py-3 w-full text-color_gray text-sm placeholder:text-color_gray ${
                       errors.phone ? 'border border-red-500' : ''
                     }`}
@@ -218,7 +218,7 @@ export const FormComponent = ({
               <button
                 type="submit"
                 disabled={isLoading}
-                className={`bg-button_red hover:opacity-80 transition-opacity duration-200 focus:outline-none mt-4 py-3 text-white font-semibold text-base w-full rounded-xl ${
+                className={`bg-button_red hover:opacity-80 transition-opacity duration-200 focus:outline-none mt-2 lg:mt-4 py-3 text-white font-semibold text-sm lg:text-base w-full rounded-xl ${
                   isLoading ? 'opacity-70 cursor-not-allowed' : ''
                 }`}
               >

@@ -6,6 +6,7 @@ import path from "path";
 import { HomeContent } from "@/types/home";
 import { Metadata } from "next";
 
+
 // Функция для получения данных с сервера
 async function getHomeData(): Promise<HomeContent> {
   const filePath = path.join(process.cwd(), "src/data/home.json");
@@ -38,7 +39,7 @@ export default async function HomePage() {
               IT-
               <span className="font-normal">РЕШЕНИЙ</span>
             </h2>
-            <h1 className="text-2xl lg:text-4xl font-bold block mt-4 lg:w-5/12">
+            <h1 className="text-2xl lg:text-[32px] font-bold block mt-4 lg:w-5/12 lg:pr-16">
               {homeData.hero.subtitle}
             </h1>
             <RequestButton />

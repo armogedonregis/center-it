@@ -50,8 +50,8 @@ export default async function ServicesPage() {
   return (
     <section className="bg-main_bg_with_noise bg-blend-soft-light bg-repeat text-white py-16">
       <div className="container">
-        <h2 className="text-3xl font-medium">{servicesData.hero.title}</h2>
-        <p className="mt-2 text-base max-w-[750px]">
+        <h2 className="text-xl lg:text-[28px] font-medium">{servicesData.hero.title}</h2>
+        <p className="mt-2 text-sm lg:text-base max-w-[750px]">
           {servicesData.hero.description}
         </p>
 
@@ -68,17 +68,17 @@ export default async function ServicesPage() {
                     alt=""
                     className="w-16 h-10 object-contain"
                   />
-                  <h3 className="text-xl font-semibold">{item.title}</h3>
+                  <h3 className="text-base lg:text-xl font-semibold">{item.title}</h3>
                 </div>
 
-                <p className="text-base mt-2">{item.description}</p>
+                <p className="text-sm lg:text-base mt-2">{item.description}</p>
 
                 {item.list.length > 0 && (
                   <ul className="space-y-2 mb-8 mt-2">
                     {item.list.map((item, index) => (
                       <li
                         key={index}
-                        className="text-sm pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-white"
+                        className="text-xs lg:text-sm pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-white"
                       >
                         {item}
                       </li>
@@ -94,7 +94,7 @@ export default async function ServicesPage() {
           })}
         </div>
         <div className="mt-6 lg:mt-8 bg-circle_bg rounded-3xl p-6 text-white">
-          <p className="text-base lg:text-xl">
+          <p className="text-sm lg:text-xl">
             {servicesData.footer.text}
           </p>
         </div>
