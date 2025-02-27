@@ -90,7 +90,7 @@ export default async function ContactsPage() {
                   {contactsData.callback.text}
                 </p>
 
-                <RequestButton className="mt-4 block w-full bg-color_red hover:bg-red-700 text-sm lg:text-base transition-colors text-center py-3 rounded-xl cursor-pointer">
+                <RequestButton className="mt-4 block w-full bg-color_red hover:bg-red-700 text-sm lg:text-xl transition-colors text-center py-3 rounded-xl cursor-pointer">
                   {contactsData.callback.buttonText}
                 </RequestButton>
               </div>

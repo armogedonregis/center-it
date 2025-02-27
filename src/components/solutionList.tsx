@@ -21,8 +21,8 @@ export default function SolutionList({ solutions }: SolutionListProps) {
             className="flex lg:flex-row flex-col items-start gap-6 mt-16 lg:mt-[129px]"
           >
             <div className="bg-main_card_bg lg:w-1/2 rounded-3xl p-6 text-white">
-              <h5 className="text-2xl lg:text-3xl font-bold">{item.title}</h5>
-              <p className="mt-2 text-base">{item.description}</p>
+              <h5 className="text-base lg:text-xl font-bold">{item.title}</h5>
+              <p className="mt-2 text-xs lg:text-base">{item.description}</p>
               <div
                 className="mt-2 relative w-full rounded-2xl overflow-hidden cursor-pointer"
                 onClick={() => setSelectedImage(item.image)}
@@ -53,7 +53,7 @@ export default function SolutionList({ solutions }: SolutionListProps) {
             </div>
             <div className="lg:w-1/2">
               <div className="bg-main_card_bg rounded-3xl p-6 text-white">
-                <h5 className="text-xl lg:text-2xl font-medium">
+                <h5 className="text-base lg:text-xl font-medium">
                   {item.functionality}
                 </h5>
                 <div className="space-y-4 mt-4">
@@ -65,10 +65,10 @@ export default function SolutionList({ solutions }: SolutionListProps) {
                       >
                         <div className="w-3 h-3 rounded-full bg-circle_bg mt-2 flex-shrink-0"></div>
                         <div>
-                          <h6 className="font-semibold text-lg">
+                          <h6 className="font-semibold text-sm lg:text-base">
                             {item.title}
                           </h6>
-                          <p className="">{item.description}</p>
+                          <p className="text-xs mt-1 lg:text-sm">{item.description}</p>
                         </div>
                       </div>
                     );
@@ -76,7 +76,7 @@ export default function SolutionList({ solutions }: SolutionListProps) {
                 </div>
               </div>
               <div className="mt-4 bg-circle_bg rounded-3xl p-6 text-white">
-                <h5 className="text-xl lg:text-2xl font-medium">
+                <h5 className="text-base lg:text-xl font-medium">
                   {item.advantages}
                 </h5>
                 <div className="space-y-4 mt-4">
@@ -87,7 +87,7 @@ export default function SolutionList({ solutions }: SolutionListProps) {
                         className="flex items-start gap-2.5"
                       >
                         <div className="w-3 h-3 rounded-full bg-white mt-2 flex-shrink-0"></div>
-                        <p className="">{x}</p>
+                        <p className="lg:text-base text-sm">{x}</p>
                       </div>
                     );
                   })}

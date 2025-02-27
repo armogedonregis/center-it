@@ -89,21 +89,21 @@ export default async function AboutPage() {
   
   return (
     <>
-      <section className="bg-main_bg_with_noise bg-blend-soft-light bg-repeat text-white py-16">
+      <section className="bg-main_bg_with_noise bg-blend-soft-light bg-repeat text-white py-10 lg:py-16">
         <div className="container">
           <h2 className="text-xl lg:text-[28px] font-medium">{aboutData.hero.title}</h2>
 
-          <div className="grid lg:grid-cols-2 gap-6 mt-16">
+          <div className="grid lg:grid-cols-2 gap-4 lg:gap-6 mt-6 lg:mt-16">
             <div className="bg-main_card_bg rounded-3xl p-6">
-              <h3 className="text-xl font-semibold">{aboutData.whoWeAre?.title}</h3>
-              <p className="text-sm mt-2">
+              <h3 className="text-base lg:text-xl font-semibold">{aboutData.whoWeAre?.title}</h3>
+              <p className="text-xs lg:text-sm mt-1 lg:mt-2">
                 {aboutData.whoWeAre?.description}
               </p>
             </div>
 
             <div className="bg-main_card_bg rounded-3xl relative p-6">
-              <h3 className="text-xl font-semibold">{aboutData.mission.title}</h3>
-              <p className="text-sm mt-2 relative z-10">
+              <h3 className="text-base lg:text-xl font-semibold">{aboutData.mission.title}</h3>
+              <p className="text-xs lg:text-sm mt-1 lg:mt-2 relative z-10">
                 {aboutData.mission.description}
               </p>
               <img
@@ -116,28 +116,28 @@ export default async function AboutPage() {
           </div>
 
           <div className="mt-10 lg:mt-16">
-            <h3 className="text-xl font-medium">{aboutData.values.title}</h3>
-            <div className="mt-4 grid gap-6">
+            <h3 className="text-base lg:text-xl font-medium">{aboutData.values.title}</h3>
+            <div className="mt-2 lg:mt-4 grid gap-4 lg:gap-6">
               <div className="grid lg:grid-cols-2 gap-6">
                 {aboutData.values.items.slice(0, 2).map((value) => (
                   <div
                     key={value.id}
                     className="bg-main_card_bg rounded-2xl p-6"
                   >
-                    <h4 className="text-xl font-semibold">{value.title}</h4>
-                    <p className="text-sm mt-2">{value.description}</p>
+                    <h4 className="text-base lg:text-xl font-semibold">{value.title}</h4>
+                    <p className="text-xs lg:text-sm mt-1 lg:mt-2">{value.description}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="grid lg:grid-cols-3 gap-6">
+              <div className="grid lg:grid-cols-3 gap-4 lg:gap-6">
                 {aboutData.values.items.slice(2, 5).map((value) => (
                   <div
                     key={value.id}
                     className="bg-main_card_bg rounded-2xl p-6"
                   >
-                    <h4 className="text-xl font-semibold">{value.title}</h4>
-                    <p className="text-sm mt-2">{value.description}</p>
+                    <h4 className="text-base lg:text-xl font-semibold">{value.title}</h4>
+                    <p className="text-xs lg:text-sm mt-1 lg:mt-2">{value.description}</p>
                   </div>
                 ))}
               </div>
@@ -146,43 +146,43 @@ export default async function AboutPage() {
 
           <div className="mt-10 lg:mt-16">
             <h3 className="text-xl font-medium">{aboutData.advantages.title}</h3>
-            <div className="grid lg:grid-cols-2 mt-4 gap-6">
+            <div className="grid lg:grid-cols-2 mt-2 lg:mt-4 gap-4 lg:gap-6">
               {aboutData.advantages.items.map((advantage) => (
                 <div
                   key={advantage.id}
                   className="bg-main_card_bg rounded-2xl p-6"
                 >
-                  <h4 className="text-xl font-semibold">{advantage.title}</h4>
-                  <p className="text-sm mt-2">{advantage.description}</p>
+                  <h4 className="text-base lg:text-xl font-semibold">{advantage.title}</h4>
+                  <p className="text-xs lg:text-sm mt-2">{advantage.description}</p>
                 </div>
               ))}
             </div>
           </div>
 
           <div className="mt-4 bg-circle_bg rounded-3xl py-4 px-6">
-            <p className="text-base lg:text-xl lg:pr-20">
+            <p className="text-sm lg:text-xl lg:pr-20">
               {aboutData.partnership.text}
             </p>
           </div>
 
           <div className="mt-16">
-            <h3 className="text-2xl font-semibold">{aboutData.legalInfo.title}</h3>
+            <h3 className="text-base lg:text-xl font-semibold">{aboutData.legalInfo.title}</h3>
             <div className="grid lg:grid-cols-2 mt-4 gap-4">
               <div>
                 <div>
-                  <span className="text-base font-medium">
+                  <span className="text-xs lg:text-base font-medium">
                     {aboutData.legalInfo.officialName.label}{" "}
                   </span>
-                  <span className="text-sm">
+                  <span className="text-xs lg:text-base">
                     {aboutData.legalInfo.officialName.value}
                   </span>
                 </div>
 
-                <div className="mt-2">
-                  <span className="text-base font-medium">
+                <div className="lg:mt-2 mt-1 lg:pr-5">
+                  <span className="text-xs lg:text-base font-medium">
                     {aboutData.legalInfo.legalAddress.label}{" "}
                   </span>
-                  <span className="text-sm">
+                  <span className="text-xs lg:text-base">
                     {aboutData.legalInfo.legalAddress.value}
                   </span>
                 </div>
@@ -190,25 +190,25 @@ export default async function AboutPage() {
 
               <div className="space-y-1">
                 <div>
-                  <span className="text-base font-medium">{aboutData.legalInfo.inn.label} </span>
-                  <span className="text-sm">{aboutData.legalInfo.inn.value}</span>
+                  <span className="text-xs lg:text-base font-medium">{aboutData.legalInfo.inn.label} </span>
+                  <span className="text-xs lg:text-base">{aboutData.legalInfo.inn.value}</span>
                 </div>
 
                 <div>
-                  <span className="text-base font-medium">{aboutData.legalInfo.ogrn.label} </span>
-                  <span className="text-sm">{aboutData.legalInfo.ogrn.value}</span>
+                  <span className="text-xs lg:text-base font-medium">{aboutData.legalInfo.ogrn.label} </span>
+                  <span className="text-xs lg:text-base">{aboutData.legalInfo.ogrn.value}</span>
                 </div>
 
                 <div>
-                  <span className="text-base font-medium">
+                  <span className="text-xs lg:text-base font-medium">
                     {aboutData.legalInfo.director.label}
                   </span>
-                  <div className="text-sm">{aboutData.legalInfo.director.value}</div>
+                  <div className="text-xs lg:text-base">{aboutData.legalInfo.director.value}</div>
                 </div>
 
                 <div>
-                  <span className="text-base font-medium">{aboutData.legalInfo.contacts.label}</span>
-                  <div className="text-sm inline">
+                  <span className="text-xs lg:text-base font-medium">{aboutData.legalInfo.contacts.label}</span>
+                  <div className="text-xs lg:text-base inline">
                     телефон:{" "}
                     <a
                       href={`tel:${aboutData.legalInfo.contacts.phone}`}
